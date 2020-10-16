@@ -1,0 +1,37 @@
+<%- include("header") %>
+<%- include("format") %>
+
+<% if (locals.roosters.length != 0) { %>
+<div >
+    <h1 class="mb-4 text-center">Les coqs et poules actuellement disponibles</h1>
+</div>
+<div class="row">
+    <% for(rooster of roosters) { %>
+        <div class="col-lg-4 col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="/img/roosters/<%= rooster.image %>" alt="<%= rooster.name%>" />
+                <div class="card-body">
+                    <h3 class="card-title"><%= rooster.name %></h3>
+                    <h5>Prix: <span class="badge badge-pill badge-dark"><%= formatCurrency(rooster.price) %></span> Ar</h5>
+                    <hr>
+                    <div class="d-flex">
+                        <a href="/info/<%= rooster.id%>" class="btn btn-outline-dark btn-sm mr-2">Voir l'animal</a>
+                        <form action="/buy" method="POST" style="display:flex;">
+                            <input type="hidden" name="roosterId" value="<%= rooster.id %>">
+                            <button type="submit" class="btn btn-outline-dark btn-sm">Ajouter au panier</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    <% } %>
+</div>
+<% } else { %>
+    <div >
+        <h1 class="mb-4 text-center">Aucun coqs et poules disponibles</h1>
+    </div>
+<% }%>
+
+<%- include("footer") %>

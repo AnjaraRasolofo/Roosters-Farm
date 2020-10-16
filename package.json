@@ -1,0 +1,26 @@
+{
+  "name": "p301-rooster-farm",
+  "version": "1.0.0",
+  "description": "Achat de Coqs et Poules de combat en Ligne",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "Farm, Combat de coq, Coqueleurs, NodeJS, SQLite3"
+  ],
+  "author": "Anjarasoa Solofondraibe",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "multer": "^1.4.2",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0",
+    "uuid": "^8.3.0"
+  }
+}

@@ -1,0 +1,42 @@
+<%- include('../header') %>
+<a href="/admin/roosters">Utilisateurs</a>
+<a href="/admin/roosters">Animaux</a>
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Administrateurs </div>
+          <div class="circle-tile-number text-faded ">{{ $users }}</div>
+        <a class="circle-tile-footer" href="{{ route('user.index' )}}">En savoir plus <i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading green"><i class="fa fa-envelope fa-3x"></i>
+        </div></a>
+        <div class="circle-tile-content green">
+          <div class="circle-tile-description text-faded"> Messages </div>
+        <div class="circle-tile-number text-faded ">{{ $messages }}</div>
+        <a class="circle-tile-footer" href="{{ route('message.index')}}">En savoir plus <i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading red"><i class="fa fa-calendar-check fa-3x"></i></div></a>
+        <div class="circle-tile-content red">
+          <div class="circle-tile-description text-faded"> Reservations </div>
+          <div class="circle-tile-number text-faded ">{{ $reservations }}</div>
+          <a class="circle-tile-footer" href="{{ route('book.index') }}">En savoir plus <i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<%- include('../footer') %>

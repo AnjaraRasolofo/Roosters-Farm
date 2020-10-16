@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <% if(admin) { %>
+              <a class="navbar-brand" href="/admin">Espace Admin</a>
+              <div class="navbar-nav">
+                <a href="/admin/users" class="nav-item nav-link <% if(path === '/users') { %><%= 'active' %><% } %>">Utilisateurs</a>
+                <a href="/admin/roosters" class="nav-item nav-link <% if(path === '/roosters') { %><%= 'active' %><% } %>">Animaux</a>
+              </div>
+            <% } else { %>
+              <a class="navbar-brand" href="/"><img src="/img/logo.png" alt="301-Rooster-Farm Logo">301 Rooster Farm</a>
+            <% }%>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <% if(admin) { %>
+                <div class="navbar-nav ml-auto">
+                  <a href="/" class="nav-item nav-link">WebSite</a>
+                </div>
+              <% } else { %>
+                <div class="navbar-nav">
+                <a href="/" class="nav-item nav-link <% if(path === '/') { %><%= 'active' %><% } %>">Accueil</a>
+                <a href="/cart" class="nav-item nav-link <% if(path === '/cart') { %><%= 'active' %><% } %>" <% if(locals.buy != 0) { %>style="color:dodgerblue;"<% }%>><i class="fas fa-shopping-cart"></i> <%= locals.buy %></a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                  <% if(locals.user) { %> 
+                    <a href="/logout" class="nav-item nav-link" style="color:orangered;" title="Se deconnecter"><%= locals.user %> <i class="fas fa-sign-out-alt"></i></a> 
+                    
+                  <% } else { %>
+                    <a href="/login" class="nav-item nav-link"><i class="fas fa-user"></i> Se connecter</a>
+                  <% } %>
+                </div>
+              <% } %>
+            </div>
+          </nav>
+          
+                    
+    

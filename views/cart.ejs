@@ -1,0 +1,69 @@
+<%- include("header") %>
+<%- include("format") %>
+
+<% if(locals.buy > 0) { %>
+    <h4>Prix total: <%= formatCurrency(totalPrice) %> AR</h4>
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Animal</th>
+                    <th scope="col">Prix</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for(item of items) { %>
+                        <tr>
+                            <th scope="row" class="td-miniature"><img src="/img/roosters/<%= item.image %>" alt="<%= item.image%>" class="miniature"></th>
+                            <td><%= item.name %></td>
+                            <td><%= formatCurrency(item.price) %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+              </table>
+        </div>
+        <div class="col-lg-4 col-md-8">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">TOTAL</h5>
+                  <hr>
+                  <p class="card-text">Sous-total : <%= formatCurrency(locals.totalPrice) %> AR</p>
+                  <p class="card-text">Livraison : <%= formatCurrency(locals.livraison) %> AR</p>
+                  <hr>
+                  <div>
+                    <p>Envoyer l'argent au 034 02 902 03 ou 032 93 505 17 et entrer la référence de paiement obtenue dans la zone ci-dessous.</p>
+                    <form action="/buy" method="POST" style="display:flex;">
+                        <input type="text" name="reference" placeholder="Entrez la référence">
+                        <button type="submit" class="btn btn-warning btn-sm">Envoyer</button>
+                    </form>
+                </div>
+              </div>
+              <hr>
+              
+              <div class="mt-4">
+                  <p>NOUS ACCEPTONS :</p> 
+                  <div class="text-center mb-3">
+                    <img src="/img/mvola.jpeg" alt="mvola" class="logo-paiement">
+                    <img src="/img/orange-money.png" alt="orange money" class="logo-paiement">
+                  </div>
+              </div>
+            
+        </div>
+    </div>
+    
+<% } else { 
+    if(error) { %>
+        <div class="alert alert-danger text-center" role="alert">
+            <%= locals.message %>
+        </div>
+    <% } else { %>
+        <div class="alert alert-info text-center" role="alert">
+            Votre panier est vide.
+        </div>
+        <% }
+    
+ }%>
+
+<%- include("footer") %>

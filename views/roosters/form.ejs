@@ -1,0 +1,26 @@
+<%- include('../header') %>
+<div class="col-lg-4 col-md-4">
+<form <% if(page === 'add') { %> action="/admin/rooster/new" <% } else { %> action="/admin/rooster/<%= locals.rooster.id %>" <% } %> method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Nom de l'animal</label>
+        <input type="text" class="form-control" id="name" name="name" value="<% if(locals.rooster) { %><%= locals.rooster.name %><% } %>">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description" value="<% if(locals.rooster) { %><%= locals.rooster.description %><% } %>">
+        </div>
+        <div class="form-group">
+            <label for="name">Image</label>
+            <input type="file" name="file">
+        </div>
+        <div class="form-group">
+            <label for="price">Prix</label>
+            <input type="text" class="form-control" id="price" name="price" value="<% if(locals.rooster) { %><%= locals.rooster.price %><% } %>">
+        </div>
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-3"><% if(page === 'add') { %>Ajouter<% } else { %>Modifier<% } %></button>
+            <a class="btn btn-secondary mt-3" href="/admin/roosters">Annuler</a>
+        </div>
+    </form>
+</div>
+<%- include('../footer') %>

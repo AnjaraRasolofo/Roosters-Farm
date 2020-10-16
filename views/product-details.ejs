@@ -1,0 +1,20 @@
+<%- include("header") %>
+
+<h1 class="mb-4 text-center">Détails du produits</h1>
+
+<div class="col-md-6 mx-auto">
+    <div class="card">
+        <img src="/img/products/<%= product.image %>" alt="<%= product.name %>" class="card-img-top">
+        <div class="card-body">
+            <h3 class="card-title"><%= product.name %></h3>
+            <p class="card-text"><%= product.description %></p>
+            <h5><span class="badge badge-pill badge-dark"><%= product.price %> AR</span></h5>
+            <form action="/add-to-cart" method="POST">
+                <input type="hidden" name="productId" value="<%= product.id%>">
+                <button type="submit" class="btn btn-outline-dark btn-sm">Ajouter au panier</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include("footer") %>

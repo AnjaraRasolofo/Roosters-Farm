@@ -1,0 +1,32 @@
+<%- include('../header') %>
+<% if(error) { %>
+    <div class="alert alert-danger" role="alert">
+        <%= message %>
+    </div>
+<% } %>
+<div class="col-lg-4 col-md-4 mb-4"><a href="/login">Cliquez ici pour se connecter</a></div>
+<div class="col-lg-4 col-md-4">
+<form action="/register" method="POST">
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur</label>
+        <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="name">Mot de passe</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="confirm">Confirmation de mot de passe</label>
+            <input type="password" class="form-control" id="confirm" name="confirm">
+        </div>
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-3">S'inscrire</button>
+            <a class="btn btn-secondary mt-3" href="/">Annuler</a>
+        </div>
+    </form>
+</div> 
+<%- include('../footer') %>
