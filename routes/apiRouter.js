@@ -1,18 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-const userController = require('../controllers/APIUserController');
-const pageController = require('../controllers/APIPageController');
+const apiController = require('../controllers/apiController');
 
+router.post('/login', apiController.login);
+router.post('/register', apiController.register);
+//router.get('/profil', apiController.getProfil);
+//router.post('/profil', apiController.editProfil);
 
-router.post('/users/login', userController.login);
-router.post('/users/register', userController.register);
-router.get('/users/profil', userController.getProfil);
-router.post('/users/profil', userController.editProfil);
-
-router.get('/', pageController.getRoosters);
-router.get('/rooster/:id', pageController.getRooster);
-router.get('/cart', pageController.getCart);
-router.post('/buy', pageController.buy);
+router.get('/', apiController.index);
+router.get('/rooster/:id', apiController.getRooster);
+router.get('/cart', apiController.cart);
+router.post('/buy', apiController.buy);
 
 module.exports = router;

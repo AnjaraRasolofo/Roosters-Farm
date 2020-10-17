@@ -1,7 +1,7 @@
 const Rooster = require('../models/Rooster');
 
 const index = (req, res) => {
-    res.render('admin/index', {title:'Tableau de bord', admin: true});
+    res.render('admin/index', {title:'Tableau de bord', path: '/admin', admin: true});
 }
 
 const getRoosters = (req, res) => {
@@ -29,7 +29,7 @@ const getRoosters = (req, res) => {
             } 
         }
         Rooster.findAndPaginate( startIndex, itemsPerPage,(roosters) => {
-            res.render('roosters/index', {title: 'Admininstration', roosters, pages, currentPage, admin: true});
+            res.render('roosters/index', {title: 'Admininstration', path: '/admin',roosters, pages, currentPage, admin: true});
         });
     });  
 }
@@ -41,7 +41,7 @@ const getRooster = (req, res) => {
 }
 
 const addRooster = (req, res) => {
-    res.render('roosters/form', {title:'Administration', admin: true, page: 'add'})
+    res.render('roosters/form', {title:'Administration', path: '/admin', admin: true, page: 'add'})
 }
 
 const saveRooster = (req, res) => {

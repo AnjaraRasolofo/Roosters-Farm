@@ -15,6 +15,8 @@ const frontRoutes = require('./routes/frontRouter');
 app.use('/', frontRoutes);
 const adminRoutes = require('./routes/appRouter');
 app.use('/admin', adminRoutes);
+const apiRoutes = require('./routes/apiRouter');
+app.use('/api', apiRoutes);
 
 const port = process.env.PORT || 3000;
 
